@@ -5,23 +5,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 
-@Entity(name = "tb_categoria")
-public class Categoria {
+@Entity(name = "tb_atividade")
+public class Atividade {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    private String nome;
 
     @Column(columnDefinition = "TEXT")
     private String descricao;
 
-    @OneToMany(mappedBy = "categoria")
-    private List<Atividade> atividades = new ArrayList<>();
+    private Double price;
 
+    @ManyToOne
+    private Categoria categoria;
 }
