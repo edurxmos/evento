@@ -3,6 +3,7 @@ package com.eduardo.evento.entities;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class Participante {
     @Column(unique = true)
     private String email;
 
+    @Getter
     @ManyToMany(mappedBy = "participantes")
     private List<Atividade> atividades = new ArrayList<>();
 }
