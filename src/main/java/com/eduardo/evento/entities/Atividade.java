@@ -25,7 +25,7 @@ public class Atividade {
     @Column(columnDefinition = "TEXT")
     private String descricao;
 
-    private Double price;
+    private Double preco;
 
     @ManyToOne
     @JoinColumn(name = "categoria_id")
@@ -34,8 +34,8 @@ public class Atividade {
     @Getter
     @ManyToMany
     @JoinTable(name = "tb_participante_atividade",
-            joinColumns = @JoinColumn(name = "participante_id"),
-            inverseJoinColumns = @JoinColumn(name = "atividade_id"))
+            joinColumns = @JoinColumn(name = "atividade_id"),
+            inverseJoinColumns = @JoinColumn(name = "participante_id"))
     private List<Participante> participantes = new ArrayList<>();
 
     @OneToMany(mappedBy = "atividade")
